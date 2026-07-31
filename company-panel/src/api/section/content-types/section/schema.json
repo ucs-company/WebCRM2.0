@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sections",
+  "info": {
+    "singularName": "section",
+    "pluralName": "sections",
+    "displayName": "Section",
+    "description": "A content section (heading, text, images) within a page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": ["hero", "text", "image_text", "gallery", "stats", "contact"],
+      "default": "text"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "images": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "page": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::page.page",
+      "inversedBy": "sections"
+    }
+  }
+}
